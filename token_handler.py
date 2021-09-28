@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-api_filepath = "$HOME/.config/tokens/"
+api_filepath = "/home/elal/.config/tokens/"
 
 def read_token_file(filepath: str) -> str:
     fh = open(filepath, "r")
