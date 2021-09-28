@@ -4,12 +4,12 @@ from token_handler import get_token
 import requests
 import math
 
-params = (
-    ('locations', f'{latitude},{longitude}'),
-    ('key', f'get_token("google_maps")') 
-)
 
 def get_elevation(latitude: float, longitude: float):
+    params = (
+        ('locations', f'{latitude},{longitude}'),
+        ('key', f'get_token("google_maps")') 
+    )
 
     response = requests.get('https://maps.googleapis.com/maps/api/elevation/json', params=params)
 
