@@ -38,14 +38,14 @@ def calculate_mid_point(start_coords: tuple, end_coords: tuple):
     lat1, lng1 = start_coords
     lat2, lng2 = end_coords
 
-    lngDiff = math.radians(lng2 - lng1);
+    lngDiff = math.radians(lng2 - lng1)
 
-    latA = math.radians(lat1);
-    latB = math.radians(lat2);
-    lngA = math.radians(lng1);
+    latA = math.radians(lat1)
+    latB = math.radians(lat2)
+    lngA = math.radians(lng1)
 
-    bx = math.cos(latB) * math.cos(lngDiff);
-    by = math.cos(latB) * math.sin(lngDiff);
+    bx = math.cos(latB) * math.cos(lngDiff)
+    by = math.cos(latB) * math.sin(lngDiff)
 
     latMidway = math.degrees( 
         math.atan2(math.sin(latA) +
@@ -53,7 +53,7 @@ def calculate_mid_point(start_coords: tuple, end_coords: tuple):
         (math.cos(latA) + bx)
          + by * by)))
 
-    lngMidway = math.degrees(lngA + math.atan2(by, math.cos(latA) + bx));
+    lngMidway = math.degrees(lngA + math.atan2(by, math.cos(latA) + bx))
 
 
     return (latMidway,lngMidway)
