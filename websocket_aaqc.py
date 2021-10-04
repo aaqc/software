@@ -10,9 +10,14 @@ uri = "wss://api.aaqc.svaren.dev/gateway"
 class Websocket():
     def __init__(self, uri):
         self.uri = uri
+        print("Starting websocket listenr...")
+        print(f"URI: {uri}")
 
     async def listener(self):
-        print(await self.websocket.recv())
+        try:
+            print(await self.websocket.recv())
+        except:
+            print("Cant listen, retrying...")
     
     async def __aenter__(self):
         self._conn = websockets.connect( uri if uri != None else "wss://api.aaqc.svaren.dev/gateway")
