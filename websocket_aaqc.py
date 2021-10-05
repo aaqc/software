@@ -4,10 +4,11 @@ import sys, json, asyncio, websockets, json
 from time import sleep
 
 
-#Server address
+# Server address
 uri = "wss://api.aaqc.svaren.dev/gateway"
 
-class Websocket():
+
+class Websocket:
     def __init__(self, uri):
         self.uri = uri
         print("Starting websocket listenr...")
@@ -18,9 +19,11 @@ class Websocket():
             print(await self.websocket.recv())
         except:
             print("Cant listen, retrying...")
-    
+
     async def __aenter__(self):
-        self._conn = websockets.connect( uri if uri != None else "wss://api.aaqc.svaren.dev/gateway")
+        self._conn = websockets.connect(
+            uri if uri != None else "wss://api.aaqc.svaren.dev/gateway"
+        )
         self.websocket = await self._conn.__aenter__()
         asyncio.ensure_future(self.listener())
         return self
@@ -38,7 +41,7 @@ class Websocket():
         sleep(1)
         await self._conn.__aexit__(*sys.exc_info())
 
-    async def send_message(self, server, json_message:dict, nonce:str):
+    async def send_message(self, server, json_message: dict, nonce: str):
         json_message["nonce"] = nonce
         async with server as echo:
             await echo.send(json.dumps(json_message))

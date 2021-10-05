@@ -3,7 +3,7 @@ import aiohttp
 import asyncio
 
 
-async def get_url(url:str):
+async def get_url(url: str):
     url = f"https://api.aaqc.svaren.dev/{url}"
     try:
         async with aiohttp.ClientSession() as session:
@@ -13,17 +13,16 @@ async def get_url(url:str):
             else:
                 return await resp.json()
     except:
-        return {"status" : "error"}
-    
+        return {"status": "error"}
+
 
 async def ping():
     res = await get_url("ping")
     return True if res == "pong" else False
 
 
-
-
 async def main():
-    print(await ping())    
-    
+    print(await ping())
+
+
 asyncio.run(main())
