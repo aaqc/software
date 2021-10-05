@@ -1,2 +1,2 @@
 # Software 
-Flightplanning & other calculations
+Drone "kernel" software
