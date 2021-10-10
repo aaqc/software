@@ -12,7 +12,7 @@ class Websocket:
     def __init__(self, uri, drone_id):
         self.uri = uri
         self.drone_id = drone_id
-        dots = "*" * len(drone_id) * 3
+        dots = "*" * 40
         print(
             f"{dots}\nStarting websocket listenr\nURI: {uri}\nDrone ID: {drone_id}\n{dots}\n"
         )

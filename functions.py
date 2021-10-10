@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import aiohttp
 import asyncio
-from os import _exit, path
+from os import path
 import json
 
 
@@ -12,18 +12,31 @@ def get_drone_id():
             data = json.load(f)
             if "drone_id" in data:
                 drone_id = data["drone_id"]
-                return drone_id
+                if len(drone_id) != 0:
+                    return drone_id
+                else:
+                    print("Failed to read drone_info.json, 'drone_id' cannot be empty")
+                    return None
             else:
-                print(
-                    "Failed to read file, 'drone_id' dosen't exist in drone_info.json"
-                )
-            _exit(0)
+                print("Failed to read drone_info.json, 'drone_id' dosen't exist")
+            return None
         except Exception as e:
             print(f"Failed to read drone_info.json\n, Error: {e}")
-            _exit(0)
+            return None
     else:
         print("You need to register a drone, before runing the software.")
-        _exit(0)
+    return None
+
+
+def register_drone(drone_id: str):
+    try:
+        f = open("drone_info.json", "w")
+        drone_info_json = {"drone_id": drone_id}
+        json.dump(drone_info_json, f)
+        f.close()
+    except Exception as e:
+        print(f"Failed to register a drone\n")
+        return None
 
 
 async def get_url(url: str):
