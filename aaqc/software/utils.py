@@ -5,6 +5,16 @@ from os import path
 import json
 
 
+def get_drone_info(key):
+    try:
+        file = open("aaqc/software/drone_info.json", "r")
+        file = json.load(file)
+        return file[key]
+    except Exception as e:
+        print(e)
+        return None
+
+
 def get_drone_id():
     if path.isfile("drone_info.json"):
         try:

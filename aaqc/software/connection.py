@@ -9,13 +9,13 @@ uri = "wss://api.aaqc.svaren.dev/gateway"
 
 
 class Websocket:
-    def __init__(self, uri, drone_id):
+    def __init__(self, drone_token, uri=uri):
         self.uri = uri
-        self.drone_id = drone_id
+        self.drone_token = drone_token
         dots = "*" * 40
-        print(
-            f"{dots}\nStarting websocket listenr\nURI: {uri}\nDrone ID: {drone_id}\n{dots}\n"
-        )
+        # print(
+        #     f"{dots}\nStarting websocket listenr\nURI: {uri}\nDrone Token: {drone_token}\n{dots}"
+        # )
 
     async def listener(self):
         try:

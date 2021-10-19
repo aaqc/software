@@ -1,8 +1,14 @@
 #IGnore drone_info.json
 drone_info.json
+/aaqc/software/drone_token.json
+aaqc/software/drone_token.json
+drone_token.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+aaqc/software/__pycache__
+/aaqc/software/__pycache__
+
 *.py[cod]
 *$py.class
 
