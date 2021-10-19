@@ -1,7 +1,8 @@
 #!/usr/bin/python
 import asyncio
-from websocket_aaqc import Websocket
-from functions import get_drone_id, register_drone
+from .connection import Websocket
+from .utils import get_drone_id, register_drone
+from .flight import DroneFlight
 from os import _exit
 
 
