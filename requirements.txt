@@ -1,3 +1,4 @@
 aiohttp
 websockets
 black
+RPi.GPIO
