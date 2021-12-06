@@ -1,4 +1,5 @@
-# ESP Communications Protocl (espcom)
+# ASC (AAQC-Serial-Communcation)
+## ESP Communications Protocl (espcom)
 
 ## Packet byte structure
 

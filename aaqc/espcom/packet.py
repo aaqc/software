@@ -31,6 +31,9 @@ def compose_packet(opcode: str, data: list = []) -> bytearray:
     # Data length
     packet.append(len(data))
 
+    # Checksum
+    packet.append(xor_checksum(packet))
+
     # Opcode
     op = drone_instructions[opcode]
     packet.append(op)
@@ -38,9 +41,6 @@ def compose_packet(opcode: str, data: list = []) -> bytearray:
     # Data
     for dat in data:
         packet.append(dat)
-
-    # Checksum
-    packet.append(xor_checksum(packet))
 
     return packet
 
