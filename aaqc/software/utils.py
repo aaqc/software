@@ -61,6 +61,10 @@ def get_gps_coords():
     return (0, 0)
 
 
+def get_altitude():
+    return 0
+
+
 if __name__ == "__main__":
 
     async def main():

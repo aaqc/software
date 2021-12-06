@@ -15,6 +15,7 @@ drone_instructions = {
     "turn_left": 0x0B,
     "turn_right": 0x0C,
     "inizialize": 0x0D,
+    "force_stop": 0x0E,
 }
 
 
