@@ -2,22 +2,46 @@
 
 ## Packet byte structure
 
-	+-+-----------+------------+-+
-	|S| OP-HEADER | PARAMETERS |0|
-	+-+-----------+------------+-+
+	< 2B >< 2B ><   1B   ><  SB >
+	+-----+-----+--------+------+
+	|  S  |  C  | OPCODE | DATA | 
+	+-----+-----+--------+------+
 	
-	S: Packet size (read S segments)
-	OP-HEADER: Operation Header (4b)
-	INSTRUCTIONS: Operation parameters & instructions (nb)
-	0: Null byte
+	S: Data size (read n bytes) (2B)
+	C: Checksum (2B)
+	OPCODE: Operation code (1B)
+	DATA: Operation parameters & instructions (nB)
 
-### OP-HEADER
+### Data size
 
-	Size: 1 Byte (8 bits)
+	Size: 2 Bytes
+	Type: unsigned
+	Range: 0-511
+	Desc: Size of the data (n).
+
+### C (Checksum)
+	
+	Size: 2 Bytes
+	Type: unsigned dchar 
+	Range: 2 bytes (16 bits)
+	Desc: Checksum 
+
+### OPCODE 
+
+	Size: 1 Byte or 8 Bits
 	Type: unsigned 
 	Range: 0-255
 	Desc: Each integer in the range is a special instruction. 
 
-### INSTRUCTIONS
+### DATA 
 
 	Size: n Byte(s)
+	Desc: Data/parameters for the opcode
+
+
+## OPCODES:
+ - FORWARD
+ - RIGHT
+ - UP
+ - LIGHTS
+ 
