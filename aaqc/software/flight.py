@@ -1,5 +1,6 @@
 from aaqc.espcom.packet import *
 from aaqc.software.connection import *
+from aaqc.software.utils import get_gps_coords
 
 
 class DroneFlight:
@@ -9,6 +10,14 @@ class DroneFlight:
 
         print("Open websocket")
         self.connection = Websocket()
+
+    def __gps__(self):
+        self.gps_coordinates = get_gps_coords()
+        return self.gps_coordinates
+
+    def save_gps(self):
+        print("Save gps")
+        self.gps_coordinates = get_gps_coords()
 
     def begin(self):
         print("Begin flight")

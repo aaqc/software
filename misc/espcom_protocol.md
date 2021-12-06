@@ -3,10 +3,10 @@
 
 ## Packet byte structure
 
-	< 2B >< 2B><  1B  ><  SB  >
-	+----+-----+--------+------+
-	|  S  |  C | OPCODE | DATA |
-	+----+-----+--------+------+
+	                 <  nB  >
+	+---+---+--------+------+
+	| S | C | OPCODE | DATA |
+	+---+---+--------+------+
 		
 	S: Data size (read n bytes) (2B)
 	C: Checksum (2B)
@@ -29,7 +29,7 @@
 
 ### OPCODE 
 
-	Size: 1 Byte or 8 Bits
+	Size: 1 Byte
 	Type: unsigned 
 	Range: 0-255
 	Desc: Each integer in the range is a special instruction. 

@@ -57,6 +57,10 @@ async def ping():
     return True if res == "pong" else False
 
 
+def get_gps_coords():
+    return (0, 0)
+
+
 if __name__ == "__main__":
 
     async def main():
