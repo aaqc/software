@@ -6,22 +6,22 @@ drone_instructions = {
     "backward": 0x02,
     "left": 0x03,
     "right": 0x04,
-    "up": 0x05,
-    "down": 0x06,
+    "increase_altitude": 0x05,
+    "decrease_altitude": 0x06,
     "stop": 0x07,
     "takeoff": 0x08,
     "land": 0x09,
     "emergency": 0x0A,
     "turn_left": 0x0B,
     "turn_right": 0x0C,
+    "inizialize": 0x0D,
 }
 
 
-def xor_checksum(packet) -> int:
+def xor_checksum(packet: bytearray) -> int:
     checksum = 0
-    for B in packet:
-        checksum ^= B
-
+    for byte in packet:
+        checksum ^= byte
     return checksum
 
 
