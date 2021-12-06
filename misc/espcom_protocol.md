@@ -3,11 +3,11 @@
 
 ## Packet byte structure
 
-	< 2B >< 2B ><   1B   ><  SB >
-	+-----+-----+--------+------+
-	|  S  |  C  | OPCODE | DATA | 
-	+-----+-----+--------+------+
-	
+	< 2B >< 2B><  1B  ><  SB  >
+	+----+-----+--------+------+
+	|  S  |  C | OPCODE | DATA |
+	+----+-----+--------+------+
+		
 	S: Data size (read n bytes) (2B)
 	C: Checksum (2B)
 	OPCODE: Operation code (1B)
