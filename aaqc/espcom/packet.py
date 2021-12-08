@@ -2,6 +2,7 @@
 
 # instructions
 drone_instructions = {
+    "noop": 0x00,
     "forward": 0x01,
     "backward": 0x02,
     "left": 0x03,
@@ -16,6 +17,7 @@ drone_instructions = {
     "turn_right": 0x0C,
     "inizialize": 0x0D,
     "force_stop": 0x0E,
+    "light": 0x0F,
 }
 
 
@@ -27,7 +29,7 @@ def xor_checksum(packet: bytearray) -> int:
 
 
 def compose_packet(opcode: str, data: list = []) -> bytearray:
-    packet = bytearray([])
+    packet = bytearray()
 
     # Data length
     packet.append(len(data))

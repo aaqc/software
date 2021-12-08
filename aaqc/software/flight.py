@@ -26,32 +26,8 @@ class DroneFlight:
         pass
 
     # ------------ Drone manual control -----------------
-    def move_forward(self, param: list):
-        self.serial.send("forward", param)
-
-    def move_backward(self, param: list):
-        self.serial.send("backward", param)
-
-    def move_right(self, param: list):
-        self.serial.send("right", param)
-
-    def move_left(self, param: list):
-        self.serial.send("left", param)
-
-    def move_up(self, param: list):
-        self.serial.send("increase_altitude", param)
-
-    def move_down(self, param: list):
-        self.serial.send("decrease_altitude", param)
-
-    def move_turn_left(self, param: list):
-        self.serial.send("turn_left", param)
-
-    def move_turn_right(self, param: list):
-        self.serial.send("turn_right", param)
-
-    def move_stop(self, param: list):
-        self.serial.send("stop", param)
+    def move(self, move_op: str, param: list):
+        self.serial.send(move_op, param)
 
     # ---------- Drone INFO -----------------
     def coordinates(self):
