@@ -17,7 +17,7 @@
 
 	Size: 2 Bytes
 	Type: unsigned
-	Range: 0-511
+	Range: 0-65535
 	Desc: Size of the data (n).
 
 ### C (Checksum)
