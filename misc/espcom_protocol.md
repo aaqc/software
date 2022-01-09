@@ -4,9 +4,9 @@
 ## Packet byte structure
 
 	                 <  nB  >
-	+---+---+--------+------+
-	| S | C | OPCODE | DATA |
-	+---+---+--------+------+
+	+---+--------+------+---+
+	| S | OPCODE | DATA | C |
+	+---+--------+------+---+
 		
 	S: Data size (read n bytes) (2B)
 	C: Checksum (2B)
